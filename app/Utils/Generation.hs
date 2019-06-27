@@ -22,7 +22,7 @@ import Debug
 import Exception
 
 -- Generate a reproductible value, retrying when the generated value fails to
--- enconde
+-- encode
 strictGenerate :: (Show base) => QFCommand -> FormatInfo base actions -> Int 
                -> IO (Maybe actions, ByteString, Int)
 strictGenerate cmd fmt n = do

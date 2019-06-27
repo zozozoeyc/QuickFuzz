@@ -14,17 +14,17 @@ git clone https://github.com/CIFASIS/radamsa
 cd radamsa
 git pull
 make install DESTDIR=$HOME/.local PREFIX=""
-cd ..
+#cd ..
 
-git clone https://github.com/CIFASIS/zzuf
-cd zzuf
-./bootstrap
-./configure --prefix=$HOME/.local
-make install
+#git clone https://github.com/CIFASIS/zzuf
+#cd zzuf
+#./bootstrap
+#./configure --prefix=$HOME/.local
+#make install
 
-cd ..
+#cd ..
 
-git clone https://github.com/CIFASIS/honggfuzz
-cd honggfuzz
-make
-cp ./honggfuzz $HOME/.local/bin
+#git clone https://github.com/CIFASIS/honggfuzz
+#cd honggfuzz
+#make
+#cp ./honggfuzz $HOME/.local/bin

@@ -1,5 +1,5 @@
 {-# LANGUAGE TemplateHaskell, CPP #-}
-module Formats 
+module Formats
 ( formats
 ) where
 
@@ -51,7 +51,7 @@ import Test.QuickFuzz.Gen.Bnfc
 
 formats = [
 
--- Archives 
+-- Archives
 #ifdef ARCH
     ("tar", 'tarInfo),
     ("zip", 'zipInfo),
@@ -91,6 +91,7 @@ formats = [
     ("lua", 'luaInfo),
     ("evm", 'evmInfo),
     ("glsl", 'glslInfo),
+    ("json", 'jsonInfo),
 #endif
 
 -- PKI
@@ -112,8 +113,6 @@ formats = [
 #endif
 
 -- Base
-    ("regex", 'regexInfo) 
-    
+    ("regex", 'regexInfo)
+
     ]
-
-

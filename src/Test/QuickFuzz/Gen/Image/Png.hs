@@ -55,3 +55,13 @@ pngInfo = def
     , value = show
     , ext = "png" 
     } 
+
+newtype MyPngRawImage = MyPngRawImage PngRawImage
+
+instance Arbitrary MyPngRawImage where
+    arbitrary = do
+        rawImage <- arbitrary
+        otherThing <- someGenerator
+        pure . MyRawImage $ rawImage { _thing = otherThing }
+
+    shrink (MyRawImage i) = map MyRawImage $ shrink i
