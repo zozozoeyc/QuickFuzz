@@ -7,7 +7,7 @@ module Test.QuickFuzz.Gen.Code.C where
 
 import Data.Default
 
-import Language.C 
+import Language.C
 import Language.C.Data.Position
 import Language.C.Data.Ident
 
@@ -44,12 +44,12 @@ devMutation ''CTranslUnit
 decodeC x = either undefined id $ parseC (L8.toStrict x) (initPos "")
 
 cInfo :: FormatInfo CTranslUnit NoActions
-cInfo = def 
+cInfo = def
     { -- encode = L8.pack . concat . (map show) . (map pretty)
       encode = L8.pack . show . pretty
     , decode = decodeC
     , mutate = mutt
     , random = arbitrary
     , value = show
-    , ext = "c" 
-    } 
+    , ext = "c"
+    }

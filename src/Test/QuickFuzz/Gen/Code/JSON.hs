@@ -7,6 +7,7 @@ module Test.QuickFuzz.Gen.Code.C where
 
 import Data.Default
 
+import Data.Aeson
 import Test.QuickCheck
 import Control.Monad
 import Control.DeepSeq
@@ -45,12 +46,12 @@ devArbitrary ''JSON
 devNFData ''JSON
 devMutation ''JSON
 
-decodeJSON x = either undefined id $ parseC (L8.toStrict x) (initPos "")
+decodeJSON x = either undefined id $ Data.Aeson.decode
 
 jsonInfo :: FormatInfo JSON NoActions
 jsonInfo = def
     { -- encode = L8.pack . concat . (map show) . (map pretty)\
-      encode = L8.pack . show . pretty
+      encode = Data.Aeson.Encode.encode
     , decode = decodeJSON
     , mutate = mutt
     , random = arbitrary
